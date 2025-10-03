@@ -94,15 +94,27 @@ function appendMessage(sender, text, classes = []) {
     const wrapper = document.createElement('div');
     wrapper.classList.add('message-wrapper');
 
+    const avatar = document.createElement('div');
+    avatar.classList.add('avatar', sender);
+    avatar.innerHTML = sender === 'user' ? '👤' : '🤖';
+
     const msg = document.createElement('div');
     msg.classList.add('message', sender, ...classes);
     msg.textContent = text;
 
-    wrapper.appendChild(msg);
+    if (sender === 'user') {
+        wrapper.appendChild(msg);
+        wrapper.appendChild(avatar);
+    } else {
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(msg);
+    }
+
     chatBox.appendChild(wrapper);
     chatBox.scrollTop = chatBox.scrollHeight;
     return msg;
 }
+
 
 function updateMessage(msgElement, newText, classes = []) {
     msgElement.textContent = newText;
