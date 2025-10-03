@@ -2,45 +2,77 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gemini AI Chat - Multimodal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini AI Chat</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="chat-container">
-  <header class="chat-header">
-    <h1>Gemini Multimodal</h1>
-    <p>Your AI Assistant</p>
-  </header>
+    
+    <!-- Header -->
+    <header class="chat-header">
+      <h1>Gemini Multimodal</h1>
+      <p>Your AI Assistant</p>
+    </header>
 
-  <div id="chat-box" class="chat-box">
-    <div class="message-wrapper">
-      <div class="message bot">
-        Halo! Saya Gemini. Kirim teks, gambar, audio, atau dokumen untuk memulai.
+    <!-- Chat Box -->
+    <div id="chat-box" class="chat-box">
+      <div class="message-wrapper">
+        <div class="avatar bot">🤖</div>
+        <div class="message bot">
+          Halo! Saya Gemini. Kirim teks untuk memulai.
+        </div>
       </div>
     </div>
+
+    <!-- File Upload (hidden) -->
+    <input 
+      type="file" 
+      id="file-upload" 
+      style="display: none;" 
+      accept="image/*, application/pdf, audio/*, .txt, .docx, .pptx" 
+    />
+
+    <!-- Chat Form -->
+    <form id="chat-form" class="chat-form">
+      <button 
+        type="button" 
+        id="file-trigger-button" 
+        class="icon-button"
+        aria-label="Upload File"
+      >
+        📎
+      </button>
+      <input 
+        type="text" 
+        id="user-input" 
+        placeholder="Ketik pesan..." 
+        autocomplete="off" 
+      />
+      <button 
+        type="submit" 
+        id="send-button" 
+        class="text-button"
+      >
+        Kirim
+      </button>
+    </form>
+
+    <!-- File Preview -->
+    <div id="file-preview-container"></div>
+
+    <!-- Actions -->
+    <div class="chat-actions">
+      <button 
+        id="clear-button" 
+        class="clear-button" 
+        type="button"
+      >
+        🧹 Clear Conversation
+      </button>
+    </div>
+
   </div>
-
-  <input type="file" id="file-upload" style="display: none;" accept="image/*, application/pdf, audio/*, .txt, .docx, .pptx" />
-
-  <form id="chat-form" class="chat-form">
-    <button type="button" id="file-trigger-button" class="icon-button" aria-label="Attach file">📎</button>
-    <input type="text" id="user-input" placeholder="Ketik pesan atau unggah file..." autocomplete="off"/>
-    <button type="submit" id="send-button" class="icon-button" aria-label="Send message">📤</button>
-  </form>
-
-  <div id="file-preview-container"></div>
-
-  <div class="chat-actions">
-    <button id="clear-button" class="clear-button" type="button">🧹 Clear Conversation</button>
-  </div>
-</disv>
-
-
-
 
   <script src="script.js"></script>
 </body>
